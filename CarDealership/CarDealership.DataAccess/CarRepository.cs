@@ -1,9 +1,7 @@
-﻿using System;
+﻿using CarDealership.DataAccess.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Runtime.InteropServices;
-using CarDealership.DataAccess.Models;
 
 namespace CarDealership.DataAccess
 {
@@ -33,18 +31,7 @@ namespace CarDealership.DataAccess
 
         public void Update(Car car)
         {
-            var existingCar = Get(car.Id);
-            var properties = car.GetType().GetProperties().Where(p => !p.Name.Equals("Id"));
-            foreach (var property in properties)
-            {
-                var updatedValue = property.GetValue(car);
-                var propertyType = property.PropertyType;
-                var defaultValue = propertyType.IsValueType ? Activator.CreateInstance(propertyType) : null;
-                if ((defaultValue != null && Activator.CreateInstance(propertyType, updatedValue) != defaultValue) || updatedValue != null)
-                {
-                    property.SetValue(existingCar, updatedValue);
-                }
-            }
+            // nothing to do here yet
         }
 
         public void Delete(Car car)

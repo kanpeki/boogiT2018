@@ -14,13 +14,13 @@ namespace CarDealership
 
             do
             {
-                Console.WriteLine("---------------------------------------------------------------------------");
+                Console.WriteLine("\n---------------------------------------------------------------------------");
                 Console.WriteLine("CarDealer menu:");
                 Console.WriteLine("- to list all the cars press 1");
                 Console.WriteLine("- to add a car press 2");
                 Console.WriteLine("- to edit a car press 3");
                 Console.WriteLine("- to delete a car press 4");
-                Console.WriteLine("- to exit press 5");
+                Console.WriteLine("- to exit press 5\n");
 
                 InputReader.GetPositiveNumber(out input);
                 while (Array.IndexOf(allowedInputs, input) == -1)

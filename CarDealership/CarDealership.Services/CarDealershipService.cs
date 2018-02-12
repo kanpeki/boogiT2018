@@ -66,17 +66,18 @@ namespace CarDealership.Services
             }
             Console.WriteLine("Enter the id of the car to update");
             GetCarId(availableCars.Count(), out int carId);
-            var updatedCar = new Car { Id = carId };
+            var updatedCar = _carRepository.Get(carId);
 
             do
             {
+                Console.WriteLine("\n++++++++++++++++++++++++++++++++++++++++++++");
                 Console.WriteLine("Choose action: ");
                 Console.WriteLine("- to update the manufacturer press 1");
                 Console.WriteLine("- to update the model press 2");
                 Console.WriteLine("- to update the production year press 3");
                 Console.WriteLine("- to update the mileage press 4");
                 Console.WriteLine("- to update the RCA expiration date press 5");
-                Console.WriteLine("- to save changes press 6");
+                Console.WriteLine("- to save changes press 6\n");
 
                 InputReader.GetPositiveNumber(out input);
                 while (Array.IndexOf(allowedInputs, input) == -1)
@@ -128,6 +129,7 @@ namespace CarDealership.Services
             _carRepository.Delete(carToDelete);
             Console.WriteLine($"The car with id {carId} was removed");
         }
+
 
         #region Private
         private void ListCarDetails(Car car)
